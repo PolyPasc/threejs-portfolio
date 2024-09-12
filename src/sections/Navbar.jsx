@@ -34,6 +34,11 @@ const Navbar = () => {
 						<NavItems />
 					</nav>
 				</div>
+				<div className={`mobile-nav ${isOpen ? "max-h-dvh" : "max-h-0"}`}>
+					<nav className='p-5'>
+						<NavItems />
+					</nav>
+				</div>
 			</div>
 		</header>
 	);
