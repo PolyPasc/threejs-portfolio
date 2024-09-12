@@ -1,0 +1,12 @@
+build
+coverage
+
+node_modules
+dist
+dist-ssr
+
+.env
+.env.*
+
+.git
+.gitignore
