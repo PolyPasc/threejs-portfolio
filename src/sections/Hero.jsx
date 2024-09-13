@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import { useMediaQuery } from "react-responsive";
 import CanvasLoader from "../components/CanvasLoader";
 import HeroCamera from "../components/HeroCamera";
+import Button from "../components/ui/Button";
 import WorkDesk from "../components/WorkDesk";
 import { calculateSizes } from "../constants";
 
@@ -41,6 +42,15 @@ const Hero = () => {
 						<directionalLight position={[10, 10, 10]} intensity={0.5} />
 					</Suspense>
 				</Canvas>
+			</div>
+			<div className='c-space absolute inset-x-0 bottom-7 z-10 w-full'>
+				<a href='#contact' className='w-fit'>
+					<Button
+						text='Lets work together'
+						isBeam
+						containerClass='sm:w-fit w-full sm:min-w-96'
+					/>
+				</a>
 			</div>
 		</section>
 	);
