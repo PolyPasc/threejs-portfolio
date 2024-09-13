@@ -3,6 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 import { useMediaQuery } from "react-responsive";
 import CanvasLoader from "../components/CanvasLoader";
+import HeroCamera from "../components/HeroCamera";
 import WorkDesk from "../components/WorkDesk";
 import { calculateSizes } from "../constants";
 
@@ -29,11 +30,13 @@ const Hero = () => {
 				<Canvas className='size-full'>
 					<Suspense fallback={<CanvasLoader />}>
 						<PerspectiveCamera makeDefault position={[0, 0, 20]} />
-						<WorkDesk
-							scale={size.deskScale}
-							position={size.deskPosition}
-							rotation={size.deskRotation}
-						/>
+						<HeroCamera isMobile={isMobile}>
+							<WorkDesk
+								scale={size.deskScale}
+								position={size.deskPosition}
+								rotation={size.deskRotation}
+							/>
+						</HeroCamera>
 						<ambientLight intensity={1} />
 						<directionalLight position={[10, 10, 10]} intensity={0.5} />
 					</Suspense>
