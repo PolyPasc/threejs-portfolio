@@ -1,5 +1,7 @@
 import { PerspectiveCamera } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
+import { Suspense } from "react";
+import CanvasLoader from "../components/CanvasLoader";
 import WorkDesk from "../components/WorkDesk";
 
 const Hero = () => {
@@ -18,14 +20,16 @@ const Hero = () => {
 			</div>
 			<div className='absolute inset-0 size-full'>
 				<Canvas className='size-full'>
-					<PerspectiveCamera makeDefault position={[0, 0, 30]} />
-					<WorkDesk
-						scale={0.07}
-						position={[0, -5, 0]}
-						rotation={[0.1, Math.PI, 0]}
-					/>
-					<ambientLight intensity={1} />
-					<directionalLight position={[10, 10, 10]} intensity={0.5} />
+					<Suspense fallback={<CanvasLoader />}>
+						<PerspectiveCamera makeDefault position={[0, 0, 30]} />
+						<WorkDesk
+							scale={0.07}
+							position={[0, -5, 0]}
+							rotation={[0.1, Math.PI, 0]}
+						/>
+						<ambientLight intensity={1} />
+						<directionalLight position={[10, 10, 10]} intensity={0.5} />
+					</Suspense>
 				</Canvas>
 			</div>
 		</section>
