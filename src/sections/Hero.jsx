@@ -1,3 +1,7 @@
+import { PerspectiveCamera } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
+import WorkDesk from "../components/WorkDesk";
+
 const Hero = () => {
 	return (
 		<section
@@ -12,7 +16,14 @@ const Hero = () => {
 					Building Products and Experiences
 				</p>
 			</div>
-			<div className='absolute inset-0 size-full'></div>
+			<div className='absolute inset-0 size-full'>
+				<Canvas className='size-full'>
+					<PerspectiveCamera makeDefault position={[0, 0, 30]} />
+					<WorkDesk />
+					<ambientLight intensity={1} />
+					<directionalLight position={[10, 10, 10]} intensity={0.5} />
+				</Canvas>
+			</div>
 		</section>
 	);
 };
