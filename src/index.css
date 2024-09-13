@@ -53,4 +53,44 @@ body {
 		transform-origin: 70% 70%;
 		display: inline-block;
 	}
+
+	/* button component */
+	.btn {
+		@apply mx-auto flex cursor-pointer items-center justify-center gap-4 rounded-md bg-black-300 p-3 text-white transition-all active:scale-95;
+	}
+
+	.btn-ping {
+		@apply absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75;
+	}
+
+	.btn-ping_dot {
+		@apply relative inline-flex h-3 w-3 rounded-full bg-green-500;
+	}
+
+	@keyframes wave-animation {
+		0% {
+			transform: rotate(0deg);
+		}
+		15% {
+			transform: rotate(14deg);
+		}
+		30% {
+			transform: rotate(-8deg);
+		}
+		40% {
+			transform: rotate(14deg);
+		}
+		50% {
+			transform: rotate(-4deg);
+		}
+		60% {
+			transform: rotate(10deg);
+		}
+		70% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(0deg);
+		}
+	}
 }
