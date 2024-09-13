@@ -1,20 +1,16 @@
 import { PerspectiveCamera } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { Leva, useControls } from "leva";
 import { Suspense } from "react";
+import { useMediaQuery } from "react-responsive";
 import CanvasLoader from "../components/CanvasLoader";
 import WorkDesk from "../components/WorkDesk";
+import { calculateSizes } from "../constants";
 
 const Hero = () => {
-	const leva = useControls("WorkDesk", {
-		scale: { value: 0, max: 10, min: -10 },
-		rotationX: { value: 0, max: 10, min: -10 },
-		rotationY: { value: 0, max: 10, min: -10 },
-		rotationZ: { value: 0, max: 10, min: -10 },
-		positionX: { value: 0, max: 10, min: -10 },
-		positionY: { value: 0, max: 10, min: -10 },
-		positionZ: { value: 0, max: 10, min: -10 },
-	});
+	const isSmall = useMediaQuery({ maxWidth: 440 });
+	const isMobile = useMediaQuery({ maxWidth: 768 });
+
+	const size = calculateSizes(isSmall, isMobile);
 
 	return (
 		<section
@@ -32,28 +28,16 @@ const Hero = () => {
 			<div className='absolute inset-0 size-full'>
 				<Canvas className='size-full'>
 					<Suspense fallback={<CanvasLoader />}>
-						<PerspectiveCamera makeDefault position={[0, 0, 30]} />
+						<PerspectiveCamera makeDefault position={[0, 0, 20]} />
 						<WorkDesk
-							// scale={0.1}
-							// position={[1.5, -8, 2]}
-							// rotation={[0.25, -3.14, 0]}
-							scale={leva.scale}
-							position={[
-								leva.positionX,
-								leva.positionY,
-								leva.positionZ,
-							]}
-							rotation={[
-								leva.rotationX,
-								leva.rotationY,
-								leva.rotationZ,
-							]}
+							scale={size.deskScale}
+							position={size.deskPosition}
+							rotation={size.deskRotation}
 						/>
 						<ambientLight intensity={1} />
 						<directionalLight position={[10, 10, 10]} intensity={0.5} />
 					</Suspense>
 				</Canvas>
-				<Leva />
 			</div>
 		</section>
 	);
