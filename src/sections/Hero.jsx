@@ -1,10 +1,21 @@
 import { PerspectiveCamera } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
+import { Leva, useControls } from "leva";
 import { Suspense } from "react";
 import CanvasLoader from "../components/CanvasLoader";
 import WorkDesk from "../components/WorkDesk";
 
 const Hero = () => {
+	const leva = useControls("WorkDesk", {
+		scale: { value: 0, max: 10, min: -10 },
+		rotationX: { value: 0, max: 10, min: -10 },
+		rotationY: { value: 0, max: 10, min: -10 },
+		rotationZ: { value: 0, max: 10, min: -10 },
+		positionX: { value: 0, max: 10, min: -10 },
+		positionY: { value: 0, max: 10, min: -10 },
+		positionZ: { value: 0, max: 10, min: -10 },
+	});
+
 	return (
 		<section
 			aria-label='Hero'
@@ -23,14 +34,26 @@ const Hero = () => {
 					<Suspense fallback={<CanvasLoader />}>
 						<PerspectiveCamera makeDefault position={[0, 0, 30]} />
 						<WorkDesk
-							scale={0.07}
-							position={[0, -5, 0]}
-							rotation={[0.1, Math.PI, 0]}
+							// scale={0.1}
+							// position={[1.5, -8, 2]}
+							// rotation={[0.25, -3.14, 0]}
+							scale={leva.scale}
+							position={[
+								leva.positionX,
+								leva.positionY,
+								leva.positionZ,
+							]}
+							rotation={[
+								leva.rotationX,
+								leva.rotationY,
+								leva.rotationZ,
+							]}
 						/>
 						<ambientLight intensity={1} />
 						<directionalLight position={[10, 10, 10]} intensity={0.5} />
 					</Suspense>
 				</Canvas>
+				<Leva />
 			</div>
 		</section>
 	);
