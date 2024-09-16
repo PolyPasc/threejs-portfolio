@@ -1,10 +1,12 @@
-import { useGLTF } from "@react-three/drei";
+import { useGLTF, useVideoTexture } from "@react-three/drei";
 import { useRef } from "react";
 
 const ProjectDemoComputer = (props) => {
 	const group = useRef();
 	const { nodes, materials } = useGLTF("/models/computer.glb");
-
+	const screenTexture = useVideoTexture(
+		props.texture ?? "/textures/project/project2.mp4"
+	);
 	return (
 		// Generated using: https://github.com/pmndrs/gltfjsx or https://gltf.pmnd.rs
 		<group ref={group} {...props} dispose={null}>
@@ -16,7 +18,9 @@ const ProjectDemoComputer = (props) => {
 					position={[0.157, 1.831, 0.511]}
 					rotation={[1.571, 185.35, 18.85]}
 					scale={[0.661, 0.608, 0.401]}
-				></mesh>
+				>
+					<meshBasicMaterial map={screenTexture} />
+				</mesh>
 				<group
 					name='RootNode'
 					position={[0, 1.093, 0]}
