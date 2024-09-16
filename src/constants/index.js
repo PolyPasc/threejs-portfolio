@@ -222,3 +222,38 @@ export const myProjects = [
 		],
 	},
 ];
+
+export const clientReviews = [
+	{
+		id: 1,
+		name: "Dwight Heroldson",
+		position: "Marketing Director at AstroMedia",
+		img: "assets/review1.png",
+		review:
+			"Working with Pokemon was a fantastic experience. He transformed our outdated website into a modern, user-friendly platform. His attention to detail and commitment to quality are unmatched. Highly recommend him for any web dev projects.",
+	},
+	{
+		id: 2,
+		name: "Abrahim D. Rogers",
+		position: "Founder of TakkleAnalytics",
+		img: "assets/review2.png",
+		review:
+			"Pokemon’s expertise in web development is truly impressive. He delivered a robust and scalable solution for our e-commerce site, and our online sales have significantly increased since the launch. He’s a true professional! Fantastic work.",
+	},
+	{
+		id: 3,
+		name: "Richard Johanas",
+		position: "Project Manager at MoxxelTech ",
+		img: "assets/review3.png",
+		review:
+			"I can’t say enough good things about Pokemon. He was able to take our complex project requirements and turn them into a seamless, functional website. His problem-solving abilities are outstanding.",
+	},
+	{
+		id: 4,
+		name: "Lewis W. Smith",
+		position: "CEO of NightLight Enterprises",
+		img: "assets/review4.png",
+		review:
+			"Pokemon was a pleasure to work with. He understood our requirements perfectly and delivered a website that exceeded our expectations. His skills in both frontend backend dev are top-notch.",
+	},
+];
