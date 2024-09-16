@@ -1,4 +1,8 @@
-import { useState } from "react";
+import { Center, OrbitControls } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
+import { Suspense, useState } from "react";
+import CanvasLoader from "../components/CanvasLoader";
+import ProjectDemoComputer from "../components/ProjectDemoComputer";
 import { myProjects } from "../constants";
 
 const Projects = () => {
@@ -77,6 +81,20 @@ const Projects = () => {
 							/>
 						</button>
 					</div>
+				</div>
+				<div className='h-96 rounded-lg border-black-300 bg-black-200 md:h-full'>
+					<Canvas fallback={<div>Sorry no WebGL supported!</div>}>
+						<ambientLight intensity={4} />
+						<directionalLight position={[10, 10, 5]} />
+						<Center>
+							<Suspense fallback={<CanvasLoader />}>
+								<group scale={2} position={[0, -3, 0]} rotation={[0, -0.1, 0]}>
+									<ProjectDemoComputer />
+								</group>
+							</Suspense>
+						</Center>
+						<OrbitControls maxPolarAngle={Math.PI / 2} enableZoom={false} />
+					</Canvas>
 				</div>
 			</div>
 		</section>
