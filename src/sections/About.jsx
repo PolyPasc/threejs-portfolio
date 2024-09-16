@@ -1,7 +1,18 @@
+import { useState } from "react";
 import Globe from "react-globe.gl";
 import Button from "../components/ui/Button";
 
 const About = () => {
+	const [hasCopied, setHasCopied] = useState(false);
+
+	const handleCopy = () => {
+		navigator.clipboard.writeText("pokemon@pokeworld.com");
+		setHasCopied(true);
+		setTimeout(() => {
+			setHasCopied(false);
+		}, 2000);
+	};
+
 	return (
 		<section aria-label='About' className='c-space my-20'>
 			<div className='xl:grid-row-6 grid h-full grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3'>
@@ -91,8 +102,12 @@ const About = () => {
 						/>
 						<div className='space-y-2'>
 							<p className='grid-subText text-center'>Contact me</p>
-							<div className='copy-container'>
-								<img src='/assets/copy.svg' alt='Copy' title='Copy' />
+							<div className='copy-container' onClick={handleCopy}>
+								<img
+									src={hasCopied ? "/assets/tick.svg" : "/assets/copy.svg"}
+									alt='Copy'
+									title='Copy'
+								/>
 								<p className='text-gray_gradient font-medium md:text-xl lg:text-2xl'>
 									pokemon@pokeworld.com
 								</p>
