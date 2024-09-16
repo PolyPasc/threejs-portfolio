@@ -14,7 +14,7 @@ const About = () => {
 	};
 
 	return (
-		<section aria-label='About' className='c-space my-20'>
+		<section aria-label='About' className='c-space my-20' id='about'>
 			<div className='xl:grid-row-6 grid h-full grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3'>
 				<div className='col-span-1 xl:row-span-3'>
 					<div className='grid-container'>

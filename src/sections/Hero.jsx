@@ -20,15 +20,18 @@ const Hero = () => {
 			className='relative flex min-h-screen w-full flex-col'
 		>
 			<div className='c-space mx-auto mt-20 flex w-full flex-col gap-3 sm:mt-36'>
-				<p className='text-center font-generalsans text-2xl font-medium text-white sm:text-3xl'>
+				<h1 className='text-center font-generalsans text-2xl font-medium text-white sm:text-3xl'>
 					Hi, I am Pokemon <span className='waving-hand'>👋</span>
-				</p>
+				</h1>
 				<p className='hero_tag text-gray_gradient'>
 					Building Products and Experiences
 				</p>
 			</div>
 			<div className='absolute inset-0 size-full'>
-				<Canvas className='size-full'>
+				<Canvas
+					className='size-full'
+					fallback={<div>Sorry, no WebGL supported!</div>}
+				>
 					<Suspense fallback={<CanvasLoader />}>
 						<PerspectiveCamera makeDefault position={[0, 0, 20]} />
 						<HeroCamera isMobile={isMobile}>
@@ -44,11 +47,11 @@ const Hero = () => {
 				</Canvas>
 			</div>
 			<div className='c-space absolute inset-x-0 bottom-7 z-10 w-full'>
-				<a href='#contact' className='w-fit'>
+				<a href='#about' className='w-fit'>
 					<Button
 						text='Lets work together'
 						isBeam
-						containerClass='sm:w-fit w-full sm:min-w-96'
+						containerClass='w-full sm:w-fit sm:min-w-96'
 					/>
 				</a>
 			</div>
