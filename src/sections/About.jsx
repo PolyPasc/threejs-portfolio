@@ -66,6 +66,40 @@ const About = () => {
 						</div>
 					</div>
 				</div>
+				<div className='xl:col-span-2 xl:row-span-3'>
+					<div className='grid-container'>
+						<img
+							src='/assets/grid3.png'
+							alt='grid-3'
+							className='h-fit w-full object-contain sm:h-[266px]'
+						/>
+						<div className=''>
+							<p className='grid-headText'>My passion for Coding</p>
+							<p className='grid-subText'>
+								I love solving problems and building things through code. Coding
+								isn't my profession - it is my passion.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div className='xl:col-span-1 xl:row-span-2'>
+					<div className='grid-container'>
+						<img
+							src='/assets/grid4.png'
+							alt='grid-4'
+							className='h-fit w-full object-cover sm:h-[276px] sm:object-top md:h-[126px]'
+						/>
+						<div className='space-y-2'>
+							<p className='grid-subText text-center'>Contact me</p>
+							<div className='copy-container'>
+								<img src='/assets/copy.svg' alt='Copy' title='Copy' />
+								<p className='text-gray_gradient font-medium md:text-xl lg:text-2xl'>
+									pokemon@pokeworld.com
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</section>
 	);
