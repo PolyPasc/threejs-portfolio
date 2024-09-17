@@ -78,7 +78,7 @@ const About = () => {
 					</div>
 				</div>
 				<div className='xl:col-span-2 xl:row-span-3'>
-					<div className='grid-container'>
+					<div className='grid-container justify-around'>
 						<img
 							src='/assets/grid3.png'
 							alt='grid-3'
