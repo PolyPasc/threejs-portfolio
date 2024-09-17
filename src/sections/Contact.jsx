@@ -1,4 +1,24 @@
+import { useRef, useState } from "react";
+
 const Contact = () => {
+	const formRef = useRef();
+	const [loading, setLoading] = useState(false);
+	const [form, setform] = useState({ name: "", email: "", message: "" });
+
+	const handleChange = ({ target: { name, value } }) => {
+		setform({ ...form, [name]: value });
+	};
+
+	const handleSubmit = async (event) => {
+		event.preventDefault();
+		setLoading(true);
+		// Update recipient-email@example.com accordingly
+		const mailtoLink = `mailto:recipient-email@example.com?subject=Message from ${form.name}&body=${form.message}%0D%0A%0D%0AFrom: ${form.email}`;
+
+		window.location.href = mailtoLink;
+		setLoading(false);
+	};
+
 	return (
 		<section className='c-space my-20' aria-label='Contact' id='contact'>
 			<div className='relative z-0 flex min-h-screen flex-col items-center justify-center'>
@@ -13,13 +33,19 @@ const Contact = () => {
 						Whether you’re looking to build a new website, improve your existing
 						platform, or bring a unique project to life, I’m here to help.
 					</p>
-					<form className='mt-12 flex flex-col space-y-7'>
+					<form
+						ref={formRef}
+						onSubmit={handleSubmit}
+						className='mt-12 flex flex-col space-y-7'
+					>
 						<label htmlFor='fullName' className='space-y-3'>
 							<span className='field-label'>Full Name</span>
 							<input
 								type='text'
 								name='name'
 								id='fullName'
+								value={form.name}
+								onChange={handleChange}
 								required
 								className='field-input'
 								placeholder='Jhon Doe'
@@ -31,6 +57,8 @@ const Contact = () => {
 								type='email'
 								name='email'
 								id='Email'
+								value={form.email}
+								onChange={handleChange}
 								required
 								className='field-input'
 								placeholder='jhondoe@example.com'
@@ -41,14 +69,16 @@ const Contact = () => {
 							<textarea
 								name='message '
 								id='yourMessage'
+								value={form.message}
+								onChange={handleChange}
 								required
 								rows={5}
 								className='field-input'
 								placeholder='Hi, I have a mission for you ...'
 							/>
 						</label>
-						<button className='field-btn' type='submit'>
-							"Send Message"
+						<button className='field-btn' type='submit' disabled={loading}>
+							{loading ? "Sending..." : "Send Message"}
 							<img src='/assets/arrow-up.png' className='field-btn_arrow' />
 						</button>
 					</form>
