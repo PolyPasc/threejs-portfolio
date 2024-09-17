@@ -5,8 +5,7 @@ const Developer = (props) => {
 
 	return (
 		// Generated using: https://github.com/pmndrs/gltfjsx or https://gltf.pmnd.rs
-
-		<group ref={group} {...props} dispose={null}>
+		<group {...props} dispose={null}>
 			<primitive object={nodes.Hips} />
 			<skinnedMesh
 				geometry={nodes.Wolf3D_Hair.geometry}
