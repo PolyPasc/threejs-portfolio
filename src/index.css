@@ -119,6 +119,31 @@ body {
 	.client-content {
 		@apply mt-7 flex flex-col items-start justify-between gap-5 lg:flex-row lg:items-center;
 	}
+
+	/*  work experience section */
+	.work-container {
+		@apply mt-12 grid grid-cols-1 gap-y-5 lg:grid-cols-3 lg:gap-x-5;
+	}
+
+	.work-canvas {
+		@apply col-span-1 rounded-lg border border-black-300 bg-black-200;
+	}
+
+	.work-content {
+		@apply col-span-2 rounded-lg border border-black-300 bg-black-200;
+	}
+
+	.work-content_container {
+		@apply grid cursor-pointer grid-cols-[auto_1fr] items-start gap-5 rounded-lg px-2.5 transition-all duration-500 ease-in-out hover:bg-black-300 sm:px-5;
+	}
+
+	.work-content_logo {
+		@apply h-16 w-16 rounded-3xl bg-black-600 p-2;
+	}
+
+	.work-content_bar {
+		@apply mt-4 h-full w-0.5 flex-1 bg-black-300 group-last:hidden group-hover:bg-black-500;
+	}
 }
 
 @keyframes wave-animation {
