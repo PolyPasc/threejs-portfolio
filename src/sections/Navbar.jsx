@@ -36,7 +36,7 @@ const Navbar = () => {
 				</div>
 				<div className={`mobile-nav ${isOpen ? "max-h-dvh" : "max-h-0"}`}>
 					<nav className='p-5'>
-						<NavItems />
+						<NavItems onNavItemClick={() => setIsOpen(false)} />
 					</nav>
 				</div>
 			</div>
