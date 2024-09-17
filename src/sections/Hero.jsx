@@ -16,6 +16,7 @@ const Hero = () => {
 
 	return (
 		<section
+			id='home'
 			aria-label='Hero'
 			className='relative flex min-h-screen w-full flex-col'
 		>

@@ -21,7 +21,7 @@ const Projects = () => {
 	};
 
 	return (
-		<section aria-label='Projects' className='c-space my-20'>
+		<section aria-label='Projects' id='projects' className='c-space my-20'>
 			<h2 className='head-text'>My Work</h2>
 			<div className='mt-12 grid w-full grid-cols-1 gap-5 lg:grid-cols-2'>
 				<div className='relative flex flex-col gap-5 px-5 py-10 shadow-2xl shadow-black-200 sm:p-10'>

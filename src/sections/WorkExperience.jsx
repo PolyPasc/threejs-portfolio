@@ -7,7 +7,7 @@ import { workExperiences } from "../constants";
 
 const WorkExperience = () => {
 	return (
-		<section aria-label='Work Experience' className='c-space my-20'>
+		<section aria-label='Work Experience' id='work' className='c-space my-20'>
 			<div className='w-full text-white-600'>
 				<h2 className='head-text'>My Work Experience</h2>
 				<div className='work-container'>
