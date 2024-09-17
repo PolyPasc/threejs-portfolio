@@ -144,6 +144,27 @@ body {
 	.work-content_bar {
 		@apply mt-4 h-full w-0.5 flex-1 bg-black-300 group-last:hidden group-hover:bg-black-500;
 	}
+
+	/* contact section */
+	.contact-container {
+		@apply relative z-10 mt-12 max-w-xl px-5 sm:px-10;
+	}
+
+	.field-label {
+		@apply text-lg text-white-600;
+	}
+
+	.field-input {
+		@apply min-h-14 w-full rounded-lg bg-black-300 px-5 py-2 text-lg text-white-800 shadow-2xl shadow-black-200 placeholder:text-white-500 focus:outline-none;
+	}
+
+	.field-btn {
+		@apply flex min-h-12 items-center justify-center gap-3 rounded-lg bg-black-500 px-5 py-2 text-lg text-white shadow-2xl shadow-black-200;
+	}
+
+	.field-btn_arrow {
+		@apply size-2.5 object-contain brightness-0 invert;
+	}
 }
 
 @keyframes wave-animation {
