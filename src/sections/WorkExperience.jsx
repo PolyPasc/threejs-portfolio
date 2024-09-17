@@ -1,3 +1,8 @@
+import { OrbitControls } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
+import { Suspense } from "react";
+import CanvasLoader from "../components/CanvasLoader";
+import Developer from "../components/Developer";
 import { workExperiences } from "../constants";
 
 const WorkExperience = () => {
@@ -6,6 +11,17 @@ const WorkExperience = () => {
 			<div className='w-full text-white-600'>
 				<h2 className='head-text'>My Work Experience</h2>
 				<div className='work-container'>
+					<div className='work-canvas min-h-64'>
+						<Canvas fallback={<div>Sorry, no WebGL supported!</div>}>
+							<Suspense fallback={<CanvasLoader />}>
+								<Developer position-y={-3} rotation={[0.045, 0, 0]} scale={3} />
+							</Suspense>
+							<ambientLight intensity={7} />
+							<spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
+							<directionalLight position={[10, 10, 10]} intensity={1} />
+							<OrbitControls maxPolarAngle={Math.PI / 2} enableZoom={false} />
+						</Canvas>
+					</div>
 					<div className='work-content'>
 						<div className='px-2.5 py-5 sm:px-5 sm:py-10'>
 							{workExperiences.map(
