@@ -290,3 +290,24 @@ export const workExperiences = [
 		animation: "salute",
 	},
 ];
+
+export const socials = [
+	{
+		id: 0,
+		href: "https://github.com",
+		src: "/assets/github.svg",
+		name: "GitHub",
+	},
+	{
+		id: 1,
+		href: "https://twitter.com",
+		src: "/assets/twitter.svg",
+		name: "Twitter/x",
+	},
+	{
+		id: 2,
+		href: "https://linkedin.com",
+		src: "/assets/linkedin.svg",
+		name: "linkedIn",
+	},
+];
