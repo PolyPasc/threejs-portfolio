@@ -16,6 +16,7 @@ const Footer = () => {
 				<div className='mx-auto flex gap-3'>
 					{socials.map(({ id, href, name, src }) => (
 						<a
+							key={id}
 							href={href}
 							target='_blank'
 							rel='noopener noreferrer'
@@ -32,12 +33,12 @@ const Footer = () => {
 			<p className='my-10 text-center text-white-500'>
 				Made with 💖 by
 				<a
-					href='https://'
+					href='#'
 					target='_blank'
 					rel='noopener noreferrer'
 					className='cursor-pointer text-white-600'
 				>
-					Pokemon
+					{" "}Pokemon
 				</a>
 			</p>
 		</footer>

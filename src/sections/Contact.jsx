@@ -67,7 +67,7 @@ const Contact = () => {
 						<label htmlFor='yourMessage' className='space-y-3'>
 							<span className='field-label'>Your Message</span>
 							<textarea
-								name='message '
+								name='message'
 								id='yourMessage'
 								value={form.message}
 								onChange={handleChange}
